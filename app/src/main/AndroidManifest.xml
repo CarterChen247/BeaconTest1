@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.fuyxuan.beacontest1">
+
+    <uses-feature
+        android:name="android.hardware.bluetooth_le"
+        android:required="true" />
+
+    <uses-permission android:name="android.permission.BLUETOOTH" />
+    <uses-permission android:name="android.permission.BLUETOOTH_ADMIN" />
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED"/>
+
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
+        <activity android:name=".MainActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <service android:name="com.fuyxuan.beacontest1.BeaconService">
+
+
+        </service>
+
+        <receiver android:name="com.fuyxuan.beacontest1.BeaconBroadcast">
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED" />            <!--手機重開機-->
+                <action android:name="android.intent.action.QUICKBOOT_POWERON" />         <!--電源啟動-->
+                <action android:name="com.htc.intent.action.QUICKBOOT_POWERON" />         <!--電源啟動for HTC-->
+                <action android:name="android.intent.action.ACTION_POWER_CONNECTED" />    <!--充電-->
+                <action android:name="android.intent.action.ACTION_POWER_DISCONNECTED" /> <!--dis充電-->
+                <action android:name="android.net.wifi.WIFI_STATE_CHANGED"/>              <!--Wifi 狀態-->
+                <action android:name="android.bluetooth.adapter.action.STATE_CHANGED"/>   <!--藍芽狀態-->
+            </intent-filter>
+
+
+        </receiver>
+    </application>
+
+</manifest>

@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">BeaconTest1</string>
+    <string name="OK">OK</string>
+    <string name="Cancel">Cancel</string>
+    <string name="ble_not_supported">不支援Beacon</string>
+    <string name="error_bluetooth_not_supported">不支援藍芽</string>
+</resources>
